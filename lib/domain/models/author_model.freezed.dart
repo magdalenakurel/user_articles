@@ -86,11 +86,11 @@ class _$AuthorModelCopyWithImpl<$Res, $Val extends AuthorModel>
 }
 
 /// @nodoc
-abstract class _$$_AuthorModelCopyWith<$Res>
+abstract class _$$AuthorModelImplCopyWith<$Res>
     implements $AuthorModelCopyWith<$Res> {
-  factory _$$_AuthorModelCopyWith(
-          _$_AuthorModel value, $Res Function(_$_AuthorModel) then) =
-      __$$_AuthorModelCopyWithImpl<$Res>;
+  factory _$$AuthorModelImplCopyWith(
+          _$AuthorModelImpl value, $Res Function(_$AuthorModelImpl) then) =
+      __$$AuthorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -101,11 +101,11 @@ abstract class _$$_AuthorModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AuthorModelCopyWithImpl<$Res>
-    extends _$AuthorModelCopyWithImpl<$Res, _$_AuthorModel>
-    implements _$$_AuthorModelCopyWith<$Res> {
-  __$$_AuthorModelCopyWithImpl(
-      _$_AuthorModel _value, $Res Function(_$_AuthorModel) _then)
+class __$$AuthorModelImplCopyWithImpl<$Res>
+    extends _$AuthorModelCopyWithImpl<$Res, _$AuthorModelImpl>
+    implements _$$AuthorModelImplCopyWith<$Res> {
+  __$$AuthorModelImplCopyWithImpl(
+      _$AuthorModelImpl _value, $Res Function(_$AuthorModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$_AuthorModelCopyWithImpl<$Res>
     Object? firstName = null,
     Object? lastName = null,
   }) {
-    return _then(_$_AuthorModel(
+    return _then(_$AuthorModelImpl(
       null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -139,16 +139,16 @@ class __$$_AuthorModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AuthorModel extends _AuthorModel {
-  _$_AuthorModel(
+class _$AuthorModelImpl extends _AuthorModel {
+  _$AuthorModelImpl(
       this.id,
       this.picture,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName)
       : super._();
 
-  factory _$_AuthorModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AuthorModelFromJson(json);
+  factory _$AuthorModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuthorModelImplFromJson(json);
 
   @override
   final int id;
@@ -170,7 +170,7 @@ class _$_AuthorModel extends _AuthorModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthorModel &&
+            other is _$AuthorModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.firstName, firstName) ||
@@ -187,12 +187,12 @@ class _$_AuthorModel extends _AuthorModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AuthorModelCopyWith<_$_AuthorModel> get copyWith =>
-      __$$_AuthorModelCopyWithImpl<_$_AuthorModel>(this, _$identity);
+  _$$AuthorModelImplCopyWith<_$AuthorModelImpl> get copyWith =>
+      __$$AuthorModelImplCopyWithImpl<_$AuthorModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AuthorModelToJson(
+    return _$$AuthorModelImplToJson(
       this,
     );
   }
@@ -203,11 +203,11 @@ abstract class _AuthorModel extends AuthorModel {
       final int id,
       final String picture,
       @JsonKey(name: 'first_name') final String firstName,
-      @JsonKey(name: 'last_name') final String lastName) = _$_AuthorModel;
+      @JsonKey(name: 'last_name') final String lastName) = _$AuthorModelImpl;
   _AuthorModel._() : super._();
 
   factory _AuthorModel.fromJson(Map<String, dynamic> json) =
-      _$_AuthorModel.fromJson;
+      _$AuthorModelImpl.fromJson;
 
   @override
   int get id;
@@ -221,6 +221,6 @@ abstract class _AuthorModel extends AuthorModel {
   String get lastName;
   @override
   @JsonKey(ignore: true)
-  _$$_AuthorModelCopyWith<_$_AuthorModel> get copyWith =>
+  _$$AuthorModelImplCopyWith<_$AuthorModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

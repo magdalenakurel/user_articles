@@ -75,22 +75,22 @@ class _$ArticleModelCopyWithImpl<$Res, $Val extends ArticleModel>
 }
 
 /// @nodoc
-abstract class _$$_ArticleModelCopyWith<$Res>
+abstract class _$$ArticleModelImplCopyWith<$Res>
     implements $ArticleModelCopyWith<$Res> {
-  factory _$$_ArticleModelCopyWith(
-          _$_ArticleModel value, $Res Function(_$_ArticleModel) then) =
-      __$$_ArticleModelCopyWithImpl<$Res>;
+  factory _$$ArticleModelImplCopyWith(
+          _$ArticleModelImpl value, $Res Function(_$ArticleModelImpl) then) =
+      __$$ArticleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, @JsonKey(name: 'author_id') int authorId, String content});
 }
 
 /// @nodoc
-class __$$_ArticleModelCopyWithImpl<$Res>
-    extends _$ArticleModelCopyWithImpl<$Res, _$_ArticleModel>
-    implements _$$_ArticleModelCopyWith<$Res> {
-  __$$_ArticleModelCopyWithImpl(
-      _$_ArticleModel _value, $Res Function(_$_ArticleModel) _then)
+class __$$ArticleModelImplCopyWithImpl<$Res>
+    extends _$ArticleModelCopyWithImpl<$Res, _$ArticleModelImpl>
+    implements _$$ArticleModelImplCopyWith<$Res> {
+  __$$ArticleModelImplCopyWithImpl(
+      _$ArticleModelImpl _value, $Res Function(_$ArticleModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_ArticleModelCopyWithImpl<$Res>
     Object? authorId = null,
     Object? content = null,
   }) {
-    return _then(_$_ArticleModel(
+    return _then(_$ArticleModelImpl(
       null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -119,12 +119,12 @@ class __$$_ArticleModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ArticleModel implements _ArticleModel {
-  _$_ArticleModel(
+class _$ArticleModelImpl implements _ArticleModel {
+  _$ArticleModelImpl(
       this.id, @JsonKey(name: 'author_id') this.authorId, this.content);
 
-  factory _$_ArticleModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ArticleModelFromJson(json);
+  factory _$ArticleModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ArticleModelImplFromJson(json);
 
   @override
   final int id;
@@ -143,7 +143,7 @@ class _$_ArticleModel implements _ArticleModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ArticleModel &&
+            other is _$ArticleModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
@@ -157,12 +157,12 @@ class _$_ArticleModel implements _ArticleModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ArticleModelCopyWith<_$_ArticleModel> get copyWith =>
-      __$$_ArticleModelCopyWithImpl<_$_ArticleModel>(this, _$identity);
+  _$$ArticleModelImplCopyWith<_$ArticleModelImpl> get copyWith =>
+      __$$ArticleModelImplCopyWithImpl<_$ArticleModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ArticleModelToJson(
+    return _$$ArticleModelImplToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ abstract class _ArticleModel implements ArticleModel {
   factory _ArticleModel(
       final int id,
       @JsonKey(name: 'author_id') final int authorId,
-      final String content) = _$_ArticleModel;
+      final String content) = _$ArticleModelImpl;
 
   factory _ArticleModel.fromJson(Map<String, dynamic> json) =
-      _$_ArticleModel.fromJson;
+      _$ArticleModelImpl.fromJson;
 
   @override
   int get id;
@@ -186,6 +186,6 @@ abstract class _ArticleModel implements ArticleModel {
   String get content;
   @override
   @JsonKey(ignore: true)
-  _$$_ArticleModelCopyWith<_$_ArticleModel> get copyWith =>
+  _$$ArticleModelImplCopyWith<_$ArticleModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
