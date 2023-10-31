@@ -1,24 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:user_articles/data/remote_data_sources/articles_remote_data_source.dart';
-import 'package:user_articles/data/remote_data_sources/authors_remote_data_source.dart';
-import 'package:user_articles/domain/repositories/articles_repository.dart';
-import 'package:user_articles/domain/repositories/authors_repository.dart';
-import 'package:user_articles/features/articles/cubit/articles_cubit.dart';
-import 'package:user_articles/features/home/cubit/home_cubit.dart';
+import 'package:injectable/injectable.dart';
+import 'package:user_articles/app/injection_container.config.dart';
 
 final getIT = GetIt.instance;
 
-void configureDependencies() {
-  //Bloc
-  getIT.registerFactory(() => HomeCubit(authorsRepository: getIT()));
-  getIT.registerFactory(() => ArticlesCubit(articlesRepository: getIT()));
+@InjectableInit()
+void configureDependencies() => getIT.init();
 
-//Repositories
-  getIT.registerFactory(() => AuthorsRepository(remoteDataSource: getIT()));
-  getIT.registerFactory(() => ArticlesRepository(remoteDataSource: getIT()));
-
-  //DataSources
-  getIT.registerFactory(() => AuthorsRemoteRetrofitDataSource(Dio()));
-  getIT.registerFactory(() => ArticlesRemoteRetrofitDataSource(Dio()));
+@module
+abstract class RegisterModule {
+  @Named("BaseUrl")
+  String get baseUrl =>
+      'https://my-json-server.typicode.com/adamsmaka/json-demo';
+  @lazySingleton
+  Dio dio(@Named('BaseUrl') String url) => Dio(BaseOptions(baseUrl: url));
 }
