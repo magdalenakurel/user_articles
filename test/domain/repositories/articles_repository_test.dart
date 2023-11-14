@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:user_articles/data/remote_data_sources/articles_remote_data_source.dart';
 import 'package:user_articles/domain/models/article_model.dart';
@@ -38,6 +38,7 @@ void main() {
       );
       // 2
       final results = await sut.getArticlesForAuthorId(555);
+
       // 3
       expect(results, [
         ArticleModel(1, 555, 'content1', 'picture1'),

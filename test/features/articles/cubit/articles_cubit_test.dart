@@ -1,5 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:user_articles/app/core/enums.dart';
 import 'package:user_articles/domain/models/article_model.dart';
@@ -28,25 +28,23 @@ void main() {
           ],
         );
       });
-
       blocTest<ArticlesCubit, ArticlesState>(
-        'emits Status.loading then Status.success with results',
-        build: () => sut,
-        act: (cubit) => cubit.fetchData(authorId: 555),
-        expect: () => [
-          ArticlesState(
-            status: Status.loading,
-          ),
-          ArticlesState(
-            status: Status.success,
-            results: [
-              ArticleModel(1, 555, 'content1', 'picture1'),
-              ArticleModel(2, 555, 'content2', 'picture2'),
-              ArticleModel(3, 555, 'content3', 'picture3'),
-            ],
-          )
-        ],
-      );
+          'emits Status.loading then Status.success with resoults',
+          build: () => sut,
+          act: (cubit) => cubit.fetchData(authorId: 555),
+          expect: () => [
+                ArticlesState(
+                  status: Status.loading,
+                ),
+                ArticlesState(
+                  status: Status.success,
+                  results: [
+                    ArticleModel(1, 555, 'content1', 'picture1'),
+                    ArticleModel(2, 555, 'content2', 'picture2'),
+                    ArticleModel(3, 555, 'content3', 'picture3'),
+                  ],
+                ),
+              ]);
     });
 
     group('failure', () {
@@ -55,21 +53,19 @@ void main() {
           Exception('test-exception-error'),
         );
       });
-
       blocTest<ArticlesCubit, ArticlesState>(
-        'emits Status.loading then Status.error with error message',
-        build: () => sut,
-        act: (cubit) => cubit.fetchData(authorId: 555),
-        expect: () => [
-          ArticlesState(
-            status: Status.loading,
-          ),
-          ArticlesState(
-            status: Status.error,
-            errorMessage: 'Exception: test-exception-error',
-          )
-        ],
-      );
+          'emits Status.loading then Status.error with error mesage',
+          build: () => sut,
+          act: (cubit) => cubit.fetchData(authorId: 555),
+          expect: () => [
+                ArticlesState(
+                  status: Status.loading,
+                ),
+                ArticlesState(
+                  status: Status.error,
+                  errorMessage: 'Exception: test-exception-error',
+                ),
+              ]);
     });
   });
 }

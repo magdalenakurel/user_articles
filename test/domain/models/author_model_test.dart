@@ -1,8 +1,8 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:user_articles/domain/models/author_model.dart';
 
 void main() {
-  test('should getter name return first and second name combined', () {
+  test('Should getter name return first and second name combinet', () {
     // 1
     final model = AuthorModel(1, '', 'Kamil', 'Kowalski');
 
